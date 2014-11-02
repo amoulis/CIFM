@@ -39,6 +39,10 @@ int main()
 	
 	b.printMatrix();
 	
+	b.addSingElem(2);
+	
+	b.printMatrix();
+	
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;
