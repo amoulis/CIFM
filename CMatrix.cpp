@@ -147,6 +147,35 @@ void CMatrix::multiply(CMatrix cm)
 		else
 			cout << "Matrix dimensions must agree" << endl;
 }
+CMatrix CMatrix::multiplyByMat(CMatrix cm) // TODO : Implement faster algorithm
+{
+		float sum = 0;
+		CMatrix res(cm.getWidth(), this->getHeight());
+		
+		if(this->getWidth() == cm.getHeight())
+		{
+			//~ cm = cm.transpose();
+			for(int i = 0; i < res.getWidth(); i++)
+			{	
+				for(int j = 0; j < res.getHeight(); j++)
+				{
+					
+					for(int k = 0; k < this->getWidth(); k++)
+					{	
+						res.setCoord(i, j, res.getCoord(i,j) + this->getCoord(i,k) * cm.getCoord(k,j));
+					}
+					
+				}
+			}
+		return res;
+		}
+		else
+		{
+			cout << "Matrix Dimensions must agree" << endl;
+			return res;
+		}
+	
+}
 
 void CMatrix::addSingElem(float value)
 {

@@ -30,6 +30,7 @@ class CMatrix {
 	void setCoord(int h, int w, float value);
 	void setName(std::string newName);
 	string getName();
+	CMatrix multiplyByMat(CMatrix cm);
 	
 	// Operations
 	bool checkSameSize(CMatrix cm);
@@ -40,7 +41,6 @@ class CMatrix {
 	CMatrix transpose();
 	
 	/* TODO */
-	// Transpose
 	// A*B
 	// det(A)
 	// inv(A)

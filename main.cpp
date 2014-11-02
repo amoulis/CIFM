@@ -17,7 +17,7 @@ int main()
 	{
 		vector<float> row; // Create an empty row
 		for (int g = 0; g < 2; g++) {
-			row.push_back(0.0); // Add an element (column) to the row
+			row.push_back(5); // Add an element (column) to the row
 		}
 		v3.push_back(row); // Add the row to the main vector
 	}
@@ -71,6 +71,14 @@ int main()
 	d.printMatrix();
 	cout << "d transpose :" << endl;
 	d = d.transpose();
+	d.printMatrix();
+	
+	cout << "---------------------------------" << endl;
+	
+	c.printMatrix();
+	d.printMatrix();
+	
+	d = d.multiplyByMat(d.transpose());
 	d.printMatrix();
 	
 	a.~CMatrix();
