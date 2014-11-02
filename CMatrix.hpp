@@ -35,6 +35,7 @@ class CMatrix {
 	bool checkSameSize(CMatrix cm);
 	void add(CMatrix cm);
 	void addSingElem(float value);
+	void multSingElem(float value);
 	
 	// Print
 	void printSize();

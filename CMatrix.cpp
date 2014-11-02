@@ -127,10 +127,19 @@ void CMatrix::add(CMatrix cm)
 		else
 			cout << "Matrix dimensions must agree" << endl;
 }
+
 void CMatrix::addSingElem(float value)
 {
 	for(int i = 0; i < this->getHeight(); i++)
 		for(int j = 0; j < this->getWidth(); j++)
 			this->setCoord(i, j, this->getCoord(i, j) + value);
+	
+}
+
+void CMatrix::multSingElem(float value)
+{
+	for(int i = 0; i < this->getHeight(); i++)
+		for(int j = 0; j < this->getWidth(); j++)
+			this->setCoord(i, j, this->getCoord(i, j) * value);
 	
 }

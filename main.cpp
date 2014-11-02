@@ -43,6 +43,10 @@ int main()
 	
 	b.printMatrix();
 	
+	b.multSingElem(2);
+	
+	b.printMatrix();
+	
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;
