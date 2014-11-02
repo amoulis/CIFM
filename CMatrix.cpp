@@ -154,7 +154,6 @@ CMatrix CMatrix::multiplyByMat(CMatrix cm) // TODO : Implement faster algorithm
 		
 		if(this->getWidth() == cm.getHeight())
 		{
-			//~ cm = cm.transpose();
 			for(int i = 0; i < res.getWidth(); i++)
 			{	
 				for(int j = 0; j < res.getHeight(); j++)

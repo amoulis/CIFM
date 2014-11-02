@@ -41,7 +41,6 @@ class CMatrix {
 	CMatrix transpose();
 	
 	/* TODO */
-	// A*B
 	// det(A)
 	// inv(A)
 	
