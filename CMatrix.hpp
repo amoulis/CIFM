@@ -37,6 +37,13 @@ class CMatrix {
 	void addSingElem(float value);
 	void multSingElem(float value);
 	void multiply(CMatrix cm);
+	CMatrix transpose();
+	
+	/* TODO */
+	// Transpose
+	// A*B
+	// det(A)
+	// inv(A)
 	
 	// Print
 	void printSize();

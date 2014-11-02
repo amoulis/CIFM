@@ -4,8 +4,16 @@ CMatrix::CMatrix(int w, int h)
 {
 	int i, j;
 	
-	this->height = h;
-	this->width = w;
+	if(h > 0 && w > 0)
+	{
+		this->height = h;	
+		this->width = w;
+	}
+	else
+	{
+			cout << "Error Width or Height not conform" << endl;
+			return;
+	}
 	
 	this->name = string();
 	
@@ -154,4 +162,15 @@ void CMatrix::multSingElem(float value)
 		for(int j = 0; j < this->getWidth(); j++)
 			this->setCoord(i, j, this->getCoord(i, j) * value);
 	
+}
+
+CMatrix CMatrix::transpose()
+{
+		CMatrix cm(this->getHeight(), this->getWidth());
+		
+		for(int i = 0; i < this->getHeight(); i++)
+			for(int j = 0; j < this->getWidth(); j++)
+				cm.setCoord(j,i, this->getCoord(i, j));
+		
+		return cm;
 }

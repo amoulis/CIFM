@@ -11,6 +11,17 @@ int main()
 	CMatrix a(4, 2);
 	vector<vector<float> > v1;
 	vector<vector<float> > v2;
+	vector<vector<float> > v3;
+	
+	for (int k = 0; k < 3; k++) 
+	{
+		vector<float> row; // Create an empty row
+		for (int g = 0; g < 2; g++) {
+			row.push_back(0.0); // Add an element (column) to the row
+		}
+		v3.push_back(row); // Add the row to the main vector
+	}
+	
 	
 	for (int i = 0; i < 2; i++) 
 	{
@@ -27,8 +38,7 @@ int main()
 	std::string nn("coucou");
 	CMatrix b(2, 2, v1, nn);
 	CMatrix c(2, 2, v2, nn);
-	
-	
+	CMatrix d(2, 3, v3, nn);
 	
 	a.printSize();
 	cout << a.getCoord(1, 1) << endl;
@@ -50,6 +60,18 @@ int main()
 	b.multiply(c);
 	
 	b.printMatrix();
+	
+	cout << "before transpose" << endl;
+	
+	b = b.transpose();
+	
+	b.printMatrix();
+	
+	cout << "d original :"<< endl;
+	d.printMatrix();
+	cout << "d transpose :" << endl;
+	d = d.transpose();
+	d.printMatrix();
 	
 	a.~CMatrix();
 	
