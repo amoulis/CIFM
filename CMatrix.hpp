@@ -39,15 +39,13 @@ class CMatrix {
 	void multSingElem(float value);
 	void multiply(CMatrix cm);
 	CMatrix transpose();
-	
-	/* TODO */
-	// det(A)
-	// inv(A)
+	void LUDecomp(CMatrix * L, CMatrix * U);
 	
 	// Print
 	void printSize();
 	void printMatrix();
 	
 };
+
 
 #endif

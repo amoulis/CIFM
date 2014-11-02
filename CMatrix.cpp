@@ -202,3 +202,31 @@ CMatrix CMatrix::transpose()
 		
 		return cm;
 }
+
+
+void CMatrix::LUDecomp(CMatrix * L, CMatrix * U)
+{
+	if(this->getHeight() != this->getWidth())
+	{
+		cout << "LU Decomposition is for square matrix only" <<endl;
+		return;
+	}
+	else
+	{
+		int n = this->getHeight();
+		for(int k = 0; k < n; n++)
+		{
+			L->setCoord(k,k, 1);
+			for(int i = k+1; i < n; i++)
+			{
+				L->setCoord(i, k, this->getCoord(i, k)/this->getCoord(k,k));
+				for(int j = k+1; j < n; j++)
+				{
+					this->setCoord(i, j, this->getCoord(i, j) - L->getCoord(i, k)*this->getCoord(k, j));
+				} 
+			}
+			for(int j=k; j<n; j++)
+				U->setCoord(k, j, this->getCoord(k, j));
+		}
+	}
+}
