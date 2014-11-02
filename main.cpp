@@ -47,6 +47,10 @@ int main()
 	
 	b.printMatrix();
 	
+	b.multiply(c);
+	
+	b.printMatrix();
+	
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;

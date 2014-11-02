@@ -128,6 +128,18 @@ void CMatrix::add(CMatrix cm)
 			cout << "Matrix dimensions must agree" << endl;
 }
 
+void CMatrix::multiply(CMatrix cm)
+{
+		if( this->checkSameSize(cm) == true)
+		{
+			for(int i = 0; i < this->getHeight(); i++)
+				for(int j = 0; j < this->getWidth(); j++)
+					this->setCoord(i, j, this->getCoord(i, j) * cm.getCoord(i, j));
+		}
+		else
+			cout << "Matrix dimensions must agree" << endl;
+}
+
 void CMatrix::addSingElem(float value)
 {
 	for(int i = 0; i < this->getHeight(); i++)

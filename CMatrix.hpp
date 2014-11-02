@@ -36,6 +36,7 @@ class CMatrix {
 	void add(CMatrix cm);
 	void addSingElem(float value);
 	void multSingElem(float value);
+	void multiply(CMatrix cm);
 	
 	// Print
 	void printSize();
