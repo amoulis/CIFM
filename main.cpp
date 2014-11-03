@@ -44,11 +44,14 @@ int main()
 	cout << a.getCoord(1, 1) << endl;
 	a.printMatrix();
 	cout << "------------------------------" << endl;
-	b.printMatrix();
-	c.printMatrix();
-	b = b*c;
-	b.printMatrix();
+
+	CMatrix * la = new CMatrix(2,2);
+	CMatrix * ua = new CMatrix(2,2);
 	
+	b.LUDecomp(la, ua);
+	la->printMatrix();
+	ua->printMatrix();
+
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;

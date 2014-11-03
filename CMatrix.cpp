@@ -213,8 +213,9 @@ void CMatrix::LUDecomp(CMatrix * L, CMatrix * U)
 	}
 	else
 	{
-		int n = this->getHeight();
-		for(int k = 0; k < n; n++)
+		const int n = this->getHeight();
+
+		for(int k = 0; k < n; k++)
 		{
 			L->setCoord(k,k, 1);
 			for(int i = k+1; i < n; i++)
@@ -223,6 +224,7 @@ void CMatrix::LUDecomp(CMatrix * L, CMatrix * U)
 				for(int j = k+1; j < n; j++)
 				{
 					this->setCoord(i, j, this->getCoord(i, j) - L->getCoord(i, k)*this->getCoord(k, j));
+					//cout << "OK !! " << j <<endl;
 				} 
 			}
 			for(int j=k; j<n; j++)
