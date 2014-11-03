@@ -236,3 +236,8 @@ CMatrix CMatrix::operator+ (const CMatrix & source)
 	this->add(source);
 	return *this;
 }
+
+CMatrix CMatrix::operator* (const CMatrix & source)
+{
+	return multiplyByMat(source);
+}

@@ -43,9 +43,10 @@ int main()
 	a.printSize();
 	cout << a.getCoord(1, 1) << endl;
 	a.printMatrix();
-	
+	cout << "------------------------------" << endl;
 	b.printMatrix();
-	b+c;
+	c.printMatrix();
+	b = b*c;
 	b.printMatrix();
 	
 	a.~CMatrix();
