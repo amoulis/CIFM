@@ -230,3 +230,9 @@ void CMatrix::LUDecomp(CMatrix * L, CMatrix * U)
 		}
 	}
 }
+
+CMatrix CMatrix::operator+ (const CMatrix & source)
+{
+	this->add(source);
+	return *this;
+}

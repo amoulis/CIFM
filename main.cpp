@@ -45,41 +45,8 @@ int main()
 	a.printMatrix();
 	
 	b.printMatrix();
-	b.add(c);
-	
+	b+c;
 	b.printMatrix();
-	
-	b.addSingElem(2);
-	
-	b.printMatrix();
-	
-	b.multSingElem(2);
-	
-	b.printMatrix();
-	
-	b.multiply(c);
-	
-	b.printMatrix();
-	
-	cout << "before transpose" << endl;
-	
-	b = b.transpose();
-	
-	b.printMatrix();
-	
-	cout << "d original :"<< endl;
-	d.printMatrix();
-	cout << "d transpose :" << endl;
-	d = d.transpose();
-	d.printMatrix();
-	
-	cout << "---------------------------------" << endl;
-	
-	c.printMatrix();
-	d.printMatrix();
-	
-	d = d.multiplyByMat(d.transpose());
-	d.printMatrix();
 	
 	a.~CMatrix();
 	

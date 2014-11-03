@@ -45,6 +45,9 @@ class CMatrix {
 	void printSize();
 	void printMatrix();
 	
+	// Operators
+
+	CMatrix operator+ (const CMatrix & source);
 };
 
 
