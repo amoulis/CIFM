@@ -40,6 +40,7 @@ class CMatrix {
 	void multiply(CMatrix cm);
 	CMatrix transpose();
 	void LUDecomp(CMatrix * L, CMatrix * U);
+	float determinant();
 	
 	// Print
 	void printSize();

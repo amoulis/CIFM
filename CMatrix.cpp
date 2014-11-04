@@ -242,3 +242,31 @@ CMatrix CMatrix::operator* (const CMatrix & source)
 {
 	return multiplyByMat(source);
 }
+
+float CMatrix::determinant()
+{
+	if(this->getHeight() != this->getWidth())
+	{
+		cout << "LU Decomposition is for square matrix only" <<endl;
+		return -1;
+	}
+	else
+	{
+		int n = this->getHeight();
+		CMatrix * L = new CMatrix(n,n);
+		CMatrix * U = new CMatrix(n,n);
+
+		this->LUDecomp(L, U);
+
+		float detu = 1, detl = 1;
+
+		for(int i = 0; i <n; i++)
+		{
+			detl = detu*L->getCoord(i,i);
+			detu = detu*U->getCoord(i,i);
+		}
+		
+		return detl*detu;
+	}
+
+}

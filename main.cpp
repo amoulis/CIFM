@@ -48,10 +48,8 @@ int main()
 	CMatrix * la = new CMatrix(2,2);
 	CMatrix * ua = new CMatrix(2,2);
 	
-	b.LUDecomp(la, ua);
-	la->printMatrix();
-	ua->printMatrix();
-
+	float det = b.determinant();
+	cout << det << endl;
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;
