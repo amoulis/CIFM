@@ -224,7 +224,6 @@ void CMatrix::LUDecomp(CMatrix * L, CMatrix * U)
 				for(int j = k+1; j < n; j++)
 				{
 					this->setCoord(i, j, this->getCoord(i, j) - L->getCoord(i, k)*this->getCoord(k, j));
-					//cout << "OK !! " << j <<endl;
 				} 
 			}
 			for(int j=k; j<n; j++)
