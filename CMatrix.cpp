@@ -247,7 +247,7 @@ float CMatrix::determinant()
 {
 	if(this->getHeight() != this->getWidth())
 	{
-		cout << "LU Decomposition is for square matrix only" <<endl;
+		cout << "This method is for square matrix only" <<endl;
 		return -1;
 	}
 	else
