@@ -40,16 +40,22 @@ int main()
 	CMatrix c(2, 2, v2, nn);
 	CMatrix d(2, 3, v3, nn);
 	
-	a.printSize();
-	cout << a.getCoord(1, 1) << endl;
-	a.printMatrix();
+	
+	b.printMatrix();
 	cout << "------------------------------" << endl;
 
 	CMatrix * la = new CMatrix(2,2);
-	CMatrix * ua = new CMatrix(2,2);
 	
-	float det = b.determinant();
-	cout << det << endl;
+	
+	b.setCoord(0,0,2);
+	b.setCoord(0,1,6);
+	b.setCoord(1,0,6);
+	b.setCoord(1,1,20);
+
+	b.printMatrix();
+	b.CholDecomp(la);
+	la->printMatrix();
+
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;

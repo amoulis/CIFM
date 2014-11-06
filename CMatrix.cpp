@@ -232,6 +232,41 @@ void CMatrix::LUDecomp(CMatrix * L, CMatrix * U)
 	}
 }
 
+void CMatrix::CholDecomp(CMatrix * L)
+{
+	if(this->getHeight() != this->getWidth())
+	{
+		cout << "Cholesky Decomposition is for square matrix only" <<endl;
+		return;
+	}
+	else
+	{
+		const int n = this->getHeight();
+
+		double S;
+		int i, j, k;
+		for(j=0; j< n;j++)
+		{
+			S = 0;
+			
+			for(k=0; k<j; k++)
+				S+=L->getCoord(j,k)*L->getCoord(j, k);
+			
+			L->setCoord(j,j,sqrt(this->getCoord(j,j)-S));
+			
+			for(i=j; i<n; i++)
+			{
+				S = 0;
+				for(k=0; k<j; k++)
+					S+=L->getCoord(i,k)*L->getCoord(j,k);
+				
+				L->setCoord(i,j,(this->getCoord(i,j)-S)/L->getCoord(j,j));
+			}
+		}
+	}
+	*L = L->transpose();
+}
+
 CMatrix CMatrix::operator+ (const CMatrix & source)
 {
 	this->add(source);

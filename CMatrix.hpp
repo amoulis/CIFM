@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -41,6 +42,7 @@ class CMatrix {
 	CMatrix transpose();
 	void LUDecomp(CMatrix * L, CMatrix * U);
 	float determinant();
+	void CholDecomp(CMatrix * L);
 	
 	// Print
 	void printSize();
