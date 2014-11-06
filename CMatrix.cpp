@@ -305,3 +305,8 @@ float CMatrix::determinant()
 	}
 
 }
+CMatrix CMatrix::operator^ (CMatrix source)
+{
+	source = source.transpose();
+	//return source;
+}
