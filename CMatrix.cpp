@@ -310,3 +310,9 @@ CMatrix CMatrix::operator^ (CMatrix source)
 	source = source.transpose();
 	//return source;
 }
+
+CMatrix CMatrix::operator* (const float & mult)
+{
+	this->multSingElem(mult);
+	return *this;
+}

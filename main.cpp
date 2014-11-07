@@ -53,8 +53,8 @@ int main()
 	b.setCoord(1,1,20);
 
 	b.printMatrix();
-	b.CholDecomp(la);
-	la->printMatrix();
+	b*2;
+	b.printMatrix();
 
 	a.~CMatrix();
 	
