@@ -57,6 +57,8 @@ int main()
 
 	b = b-c;
 	b.printMatrix();
+	b+8;
+	b.printMatrix();
 
 	cout << b.isInvertible() << endl;
 
