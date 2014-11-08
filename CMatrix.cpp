@@ -267,17 +267,6 @@ void CMatrix::CholDecomp(CMatrix * L)
 	*L = L->transpose();
 }
 
-CMatrix CMatrix::operator+ (const CMatrix & source)
-{
-	this->add(source);
-	return *this;
-}
-
-CMatrix CMatrix::operator* (const CMatrix & source)
-{
-	return multiplyByMat(source);
-}
-
 float CMatrix::determinant()
 {
 	if(this->getHeight() != this->getWidth())
@@ -314,6 +303,18 @@ bool CMatrix::isInvertible()
 		return false;
 }
 
+/* OPERATORS */
+
+CMatrix CMatrix::operator+ (const CMatrix & source)
+{
+	this->add(source);
+	return *this;
+}
+
+CMatrix CMatrix::operator* (const CMatrix & source)
+{
+	return multiplyByMat(source);
+}
 CMatrix CMatrix::operator^ (CMatrix source)
 {
 	source = source.transpose();
