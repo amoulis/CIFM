@@ -305,6 +305,15 @@ float CMatrix::determinant()
 	}
 
 }
+
+bool CMatrix::isInvertible()
+{
+	if(this->determinant() != 0)
+		return true;
+	else
+		return false;
+}
+
 CMatrix CMatrix::operator^ (CMatrix source)
 {
 	source = source.transpose();

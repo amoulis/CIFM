@@ -43,6 +43,7 @@ class CMatrix {
 	void LUDecomp(CMatrix * L, CMatrix * U);
 	float determinant();
 	void CholDecomp(CMatrix * L);
+	bool isInvertible();
 	
 	// Print
 	void printSize();

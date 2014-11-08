@@ -56,10 +56,11 @@ int main()
 	b*2;
 	b.printMatrix();
 
+	cout << b.isInvertible() << endl;
+
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;
 	
 	return 0;
 }
-
