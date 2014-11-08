@@ -325,3 +325,14 @@ CMatrix CMatrix::operator* (const float & mult)
 	this->multSingElem(mult);
 	return *this;
 }
+
+CMatrix CMatrix::operator- (const CMatrix & source)
+{
+	CMatrix temp(this->getWidth(), this->getHeight());
+	temp = source;
+	temp = temp*(-1);
+
+	this->add(temp);
+
+	return *this;
+}

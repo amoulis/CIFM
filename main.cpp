@@ -53,7 +53,9 @@ int main()
 	b.setCoord(1,1,20);
 
 	b.printMatrix();
-	b*2;
+	c.printMatrix();
+
+	b = b-c;
 	b.printMatrix();
 
 	cout << b.isInvertible() << endl;
