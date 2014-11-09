@@ -44,6 +44,7 @@ class CMatrix {
 	float determinant();
 	void CholDecomp(CMatrix * L);
 	bool isInvertible();
+	vector<float> vectByVect(vector<float> s1, vector<float> s2);
 	
 	// Print
 	void printSize();

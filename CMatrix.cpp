@@ -303,6 +303,26 @@ bool CMatrix::isInvertible()
 		return false;
 }
 
+vector<float> CMatrix::vectByVect(vector<float> s1, vector<float> s2)
+{
+
+	vector<float> res = s1;
+
+	if(s1.size() != s2.size())
+	{
+		cout << "Error vector dimensions must agree" << endl;
+		return s1;
+	}
+	else
+	{
+		for(int i= 0; i < s1.size(); i++)
+			res[i] = s1[i] * s2[i];
+
+	}
+
+	return res;
+}
+
 /* OPERATORS */
 
 CMatrix CMatrix::operator+ (const CMatrix & source)

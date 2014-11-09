@@ -22,11 +22,11 @@ int main()
 		v3.push_back(row); // Add the row to the main vector
 	}
 	
-	
+	vector<float> row; // Create an empty row
+		vector<float> row2; // Create an empty row
 	for (int i = 0; i < 2; i++) 
 	{
-		vector<float> row; // Create an empty row
-		vector<float> row2; // Create an empty row
+		
 		for (int j = 0; j < 2; j++) {
 			row.push_back(6); // Add an element (column) to the row
 			row2.push_back(5); // Add an element (column) to the row
@@ -56,9 +56,14 @@ int main()
 	c.printMatrix();
 
 	b = b-c;
-	b.printMatrix();
+	//b.printMatrix();
 	b+8;
-	b.printMatrix();
+	//b.printMatrix();
+
+	row = b.vectByVect(row, row2);
+
+for(int g = 0; g < row.size(); g++)
+	cout << row[g] << endl;
 
 	cout << b.isInvertible() << endl;
 
