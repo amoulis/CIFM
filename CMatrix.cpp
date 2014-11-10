@@ -354,6 +354,7 @@ vector<float> CMatrix::matByVect(vector<float> s)
 	return res;
 }
 
+
 /* OPERATORS */
 
 CMatrix CMatrix::operator+ (const CMatrix & source)
@@ -392,9 +393,4 @@ CMatrix CMatrix::operator- (const CMatrix & source)
 	this->add(temp);
 
 	return *this;
-}
-
-void CMatrix::operator<< (const CMatrix & source)
-{
-	this->printMatrix()
 }

@@ -46,7 +46,7 @@ class CMatrix {
 	bool isInvertible();
 	vector<float> vectByVect(vector<float> s1, vector<float> s2);
 	vector<float> matByVect(vector<float> s);
-	
+
 	// Print
 	void printSize();
 	void printMatrix();
@@ -58,7 +58,6 @@ class CMatrix {
 	CMatrix operator+ (const float & mult);
 	CMatrix operator^ (CMatrix source);
 	CMatrix operator- (const CMatrix & source);
-	void operator<< (const CMatrix & source);
 };
 
 

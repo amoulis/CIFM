@@ -62,17 +62,13 @@ int main()
 	b = b-c;
 	//b.printMatrix();
 	b+8;
+
 	b.printMatrix();
 
 	row3 = b.matByVect(row3);
-cout << "------" << endl;
-for(int g = 0; g < row3.size(); g++)
-	cout << row3[g] << endl;
-cout << "------" << endl;
-	cout << b.isInvertible() << endl;
-	cout << "////////////" <<endl;
 
-
+	b.printMatrix();
+	//cout<<b;
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;
