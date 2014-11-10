@@ -323,6 +323,37 @@ vector<float> CMatrix::vectByVect(vector<float> s1, vector<float> s2)
 	return res;
 }
 
+vector<float> CMatrix::matByVect(vector<float> s)
+{
+	int n = s.size();
+	int r;
+	vector<float> res = s;
+
+	if(s.size() != this->getHeight() && s.size() != this->getWidth())
+	{
+		cout << "At least one dimension must agree matrix x vector" << endl;
+		return s;
+	}
+	else
+	{
+		if(n == this->getWidth())
+			r = this->getWidth();
+		if(n == this->getHeight())
+			r = this->getHeight();
+
+		for(int j = 0; j < n; j++)
+		{
+			res[j] = 0;
+			for(int i = 0; i < r; i++)
+			{
+				res[j] += this->getCoord(i,j)*s[i];
+			}
+		}
+	}
+
+	return res;
+}
+
 /* OPERATORS */
 
 CMatrix CMatrix::operator+ (const CMatrix & source)

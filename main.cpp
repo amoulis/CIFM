@@ -34,7 +34,11 @@ int main()
 		v1.push_back(row); // Add the row to the main vector
 		v2.push_back(row2); // Add the row to the main vector
 	}
-	
+	vector<float> row3;
+	for (int j = 0; j < 2; j++) {
+			row3.push_back(7); // Add an element (column) to the row
+		
+		}
 	std::string nn("coucou");
 	CMatrix b(2, 2, v1, nn);
 	CMatrix c(2, 2, v2, nn);
@@ -58,13 +62,13 @@ int main()
 	b = b-c;
 	//b.printMatrix();
 	b+8;
-	//b.printMatrix();
+	b.printMatrix();
 
-	row = b.vectByVect(row, row2);
-
-for(int g = 0; g < row.size(); g++)
-	cout << row[g] << endl;
-
+	row3 = b.matByVect(row3);
+cout << "------" << endl;
+for(int g = 0; g < row3.size(); g++)
+	cout << row3[g] << endl;
+cout << "------" << endl;
 	cout << b.isInvertible() << endl;
 
 	a.~CMatrix();
