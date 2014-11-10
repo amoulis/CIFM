@@ -393,3 +393,8 @@ CMatrix CMatrix::operator- (const CMatrix & source)
 
 	return *this;
 }
+
+void CMatrix::operator<< (const CMatrix & source)
+{
+	this->printMatrix()
+}

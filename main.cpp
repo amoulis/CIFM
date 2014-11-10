@@ -70,6 +70,8 @@ for(int g = 0; g < row3.size(); g++)
 	cout << row3[g] << endl;
 cout << "------" << endl;
 	cout << b.isInvertible() << endl;
+	cout << "////////////" <<endl;
+
 
 	a.~CMatrix();
 	

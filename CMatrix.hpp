@@ -58,6 +58,7 @@ class CMatrix {
 	CMatrix operator+ (const float & mult);
 	CMatrix operator^ (CMatrix source);
 	CMatrix operator- (const CMatrix & source);
+	void operator<< (const CMatrix & source);
 };
 
 
