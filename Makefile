@@ -1,6 +1,6 @@
 CC = mingw32-g++
 EXE = prog.exe
-SOURCES = main.cpp CMatrix.cpp CMatrix.hpp
+SOURCES = main.cpp CMatrix.cpp
 
 all: $(SOURCES)
 	$(CC) $(SOURCES) -o $(EXE)
