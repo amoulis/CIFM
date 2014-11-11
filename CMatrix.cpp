@@ -394,3 +394,14 @@ CMatrix CMatrix::operator- (const CMatrix & source)
 
 	return *this;
 }
+CMatrix CMatrix::operator% (CMatrix source)
+{
+	CMatrix nm = source;
+
+	for(int i = 0; i < this->getWidth(); i++)
+		for(int j = 0; j < this->getHeight(); j++)
+			nm.setCoord(i, j, source.getCoord(i,j)*this->getCoord(i, j));
+
+
+	return nm;
+}
