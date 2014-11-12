@@ -46,7 +46,7 @@ class CMatrix {
 	bool isInvertible();
 	vector<float> vectByVect(vector<float> s1, vector<float> s2);
 	vector<float> matByVect(vector<float> s);
-	vector<float> jacobi(vector<float> b);
+	vector<float> jacobi(vector<float> x, vector<float> b, int tol);
 
 	// Print
 	void printSize();
