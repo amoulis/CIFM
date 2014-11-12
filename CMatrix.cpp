@@ -353,19 +353,27 @@ vector<float> CMatrix::matByVect(vector<float> s)
 
 	return res;
 }
-vector<float> CMatrix::jacobi(vector<float> x, vector<float> b, int tol)
+vector<float> CMatrix::jacobi(vector<float> x0, vector<float> b, int tol)
 {
-	for(int i = 0; i < this->getWidth(); i++)
+	
+	vector<float> x;
+	vector< vector<float> > res;
+
+	while((normOfVect(x, x0) < tol))
 	{
-		float sum = 0;
-		for(int j = 0; j < this->getHeight(); j++)
+		for(int i = 0; i < this->getWidth(); i++)
 		{
-			sum += (-1 * this->getCoord(i,j) * x[j] +b[i]);
+			float sum = 0;
+			for(int j = 0; j < this->getHeight(); j++)
+			{
+				sum += (-1 * this->getCoord(i,j) * x0[j] +b[i]);
+			}
+
+			x[i] = 1/this->getCoord(i,i);
 		}
-
-		x[i] = 1/this->getCoord(i,i);
+		x0 = x;
+		res.push_back(x);
 	}
-
 	return x;
 }
 
