@@ -353,6 +353,12 @@ vector<float> CMatrix::matByVect(vector<float> s)
 
 	return res;
 }
+vector<float> CMatrix::jacobi(vector<float> b)
+{
+	vector<float> x;
+
+	return x;
+}
 
 
 /* OPERATORS */
@@ -397,6 +403,12 @@ CMatrix CMatrix::operator- (const CMatrix & source)
 CMatrix CMatrix::operator% (CMatrix source)
 {
 	CMatrix nm = source;
+
+	if(this->getWidth() != source.getWidth() || this->getHeight() != source.getHeight())
+	{
+		cout << "error, matrix dimension must agree" << endl;
+		return *this;
+	}
 
 	for(int i = 0; i < this->getWidth(); i++)
 		for(int j = 0; j < this->getHeight(); j++)
