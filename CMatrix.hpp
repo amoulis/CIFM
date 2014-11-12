@@ -46,7 +46,7 @@ class CMatrix {
 	bool isInvertible();
 	vector<float> vectByVect(vector<float> s1, vector<float> s2);
 	vector<float> matByVect(vector<float> s);
-	vector<float> jacobi(vector<float> x, vector<float> b, int tol);
+	vector<float> jacobi(vector<float> x0, vector<float> b, int tol);
 	float normOfVect(vector<float> v1, vector<float> v2);
 
 	// Print
