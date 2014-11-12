@@ -369,6 +369,29 @@ vector<float> CMatrix::jacobi(vector<float> x, vector<float> b, int tol)
 	return x;
 }
 
+float CMatrix::normOfVect(vector<float> v1, vector<float> v2)
+{
+
+	int i;
+
+	if(v1.size()!=v2.size())
+	{
+		cout << "Error vector must have same size" << endl;
+		return -1;
+	}
+	else
+	{
+		float sum = 0;
+		for(i = 0; i < v2.size(); i++)
+		{	
+			v1[i] = v1[i] - v2[i];
+			sum += v1[i] * v1[i];
+		}
+
+		return sqrt(sum);
+	}
+
+}
 
 /* OPERATORS */
 
