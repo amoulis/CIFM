@@ -3,7 +3,7 @@
 CMatrix::CMatrix(int w, int h)
 {
 	int i, j;
-	
+
 	if(h > 0 && w > 0)
 	{
 		this->height = h;	

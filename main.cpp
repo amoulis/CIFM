@@ -2,6 +2,7 @@
 #include "CMatrix.hpp"
 #include <vector>
 #include <string>
+#include "analyzeString.hpp"
 
 using namespace std;
 
@@ -68,7 +69,6 @@ int main()
 	row3 = b.matByVect(row3);
 
 	b.printMatrix();
-	//cout<<b;
 	a.~CMatrix();
 	
 	cout << "Deleted a" << endl;
