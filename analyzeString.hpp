@@ -11,6 +11,7 @@ class analyzeString {
 
 	public:
 		analyzeString(std::string nData);
+		std::string getString();
 };
 
 #endif

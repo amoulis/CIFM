@@ -9,7 +9,6 @@ using namespace std;
 
 int main()
 {
-	cout << "First line of Compute It For Me" << endl;
 	CMatrix a(4, 2);
 	vector<vector<float> > v1;
 	vector<vector<float> > v2;
