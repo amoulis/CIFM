@@ -2,7 +2,6 @@
 #include "CMatrix.hpp"
 #include <vector>
 #include <string>
-#include "analyzeString.hpp"
 #include "CShell.hpp"
 
 using namespace std;

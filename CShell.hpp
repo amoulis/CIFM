@@ -7,9 +7,12 @@ class CShell{
 
 private:
 	std::string data;
+	std::string nameSession;
+	int lineNumber;
 
 public:
-	CShell(std::string ns);
+	CShell();
+	CShell(std::string name, std::string ndata);
 
 };
 
