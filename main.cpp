@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main()
+int main(void)
 {
 	CMatrix a(4, 2);
 	vector<vector<float> > v1;
