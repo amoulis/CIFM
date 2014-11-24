@@ -1,25 +1,23 @@
-CC = mingw32-g++
+.PHONY: clean run
+
+CXX = mingw32-g++
 EXE = prog.exe
-SOURCES = main.cpp CMatrix.cpp CShell.cpp analyzeString.cpp
+SOURCES = main.cpp CMatrix.cpp CShell.cpp
+OBJS = main.o CMatrix.o CShell.o
+DEPS = CMatrix.hpp CShell.hpp
+#LIB = .a 
+#LIB_OBJS = .o
 
+all: $(LIB) $(EXE)
 
-all: astring.o cmatrix.o main.o
-	$(CC) astring.o cmatrix.o main.o -o $(EXE)
+$(EXE): $(LIB) $(OBJS)
+	$(CXX) -o $@ $^
 
-astring.o: analyzeString.cpp
-	$(CC) -c analyzeString.cpp -o astring.o
+$(LIB): $(LIB_OBJS)
+	$(AR) rsc $@ $^
 
-astring.a: astring.o
-	ar rvs astring.a astring.o
-
-cmatrix.o: CMatrix.cpp
-	$(CC) -c CMatrix.cpp -o cmatrix.o
-
-main.o: main.cpp
-	$(CC) -c main.cpp -o main.o
-
-cshell.o: CShell.cpp astring.a
-	$(CC) -c CShell.cpp -l astring.a -o cshell.o
+%.o: %.cpp $(DEPS)
+	$(CXX) -g -c -o $@ $<
 
 run:  $(EXE)
 	$(EXE)
