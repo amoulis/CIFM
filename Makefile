@@ -5,7 +5,7 @@ EXE = prog.exe
 SOURCES = main.cpp CMatrix.cpp CShell.cpp
 OBJS = main.o CMatrix.o CShell.o
 DEPS = CMatrix.hpp CShell.hpp
-#LIB = .a 
+#LIB = .a
 #LIB_OBJS = .o
 
 all: $(LIB) $(EXE)
@@ -21,6 +21,6 @@ $(LIB): $(LIB_OBJS)
 
 run:  $(EXE)
 	$(EXE)
-	
+
 clean:
 	rm *.exe *.o *.a

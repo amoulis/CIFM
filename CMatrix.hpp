@@ -9,21 +9,21 @@
 using namespace std;
 
 class CMatrix {
-	
+
 	private:
-	
+
 	int width ; // Number of columns
 	int height; // Number of lines
 	std::vector< vector<float> > data;
 	std::string name;
-	
+
 	public:
-	
+
 	// Constructors & destructors
 	CMatrix(int w, int h);
 	CMatrix(int w, int h, vector<vector<float> > tab, std::string newName);
 	~CMatrix();
-	
+
 	// Setters & Getters
 	int getWidth();
 	int getHeight();
@@ -32,7 +32,7 @@ class CMatrix {
 	void setName(std::string newName);
 	string getName();
 	CMatrix multiplyByMat(CMatrix cm);
-	
+
 	// Operations
 	bool checkSameSize(CMatrix cm);
 	void add(CMatrix cm);
@@ -52,7 +52,7 @@ class CMatrix {
 	// Print
 	void printSize();
 	void printMatrix();
-	
+
 	// Operators
 	CMatrix operator* (const CMatrix & source);
 	CMatrix operator* (const float & mult);

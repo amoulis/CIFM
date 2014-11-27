@@ -26,7 +26,6 @@ std::string CShell::getString()
 	return this->data;
 }
 
-
 void CShell::DaemonLaunch()
 {
 	while(this->data!="exit")

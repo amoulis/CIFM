@@ -6,7 +6,7 @@ CMatrix::CMatrix(int w, int h)
 
 	if(h > 0 && w > 0)
 	{
-		this->height = h;	
+		this->height = h;
 		this->width = w;
 	}
 	else
@@ -14,10 +14,10 @@ CMatrix::CMatrix(int w, int h)
 			cout << "Error Width or Height not conform" << endl;
 			return;
 	}
-	
+
 	this->name = string();
-	
-	for (i = 0; i < height; i++) 
+
+	for (i = 0; i < height; i++)
 	{
 		vector<float> row; // Create an empty row
 		for (j = 0; j < width; j++) {
@@ -25,19 +25,19 @@ CMatrix::CMatrix(int w, int h)
 		}
 		this->data.push_back(row); // Add the row to the main vector
 	}
-	
+
 }
 
 CMatrix::CMatrix(int w, int h, vector<vector<float> > tab, std::string newName)
 {
 	int i, j;
-	
+
 	this->height = h;
 	this->width = w;
-	
+
 	this->name = string(newName);
-	
-	for (i = 0; i < height; i++) 
+
+	for (i = 0; i < height; i++)
 	{
 		vector<float> row; // Create an empty row
 		for (j = 0; j < width; j++) {
@@ -45,7 +45,7 @@ CMatrix::CMatrix(int w, int h, vector<vector<float> > tab, std::string newName)
 		}
 		this->data.push_back(row); // Add the row to the main vector
 	}
-	
+
 }
 
 void CMatrix::setCoord(int h, int w, float value)
@@ -63,7 +63,7 @@ CMatrix::~CMatrix()
 
 int CMatrix::getWidth()
 {
-	return this->width;	
+	return this->width;
 }
 int CMatrix::getHeight()
 {
@@ -80,13 +80,13 @@ float CMatrix::getCoord(int h, int w)
 void CMatrix::printMatrix()
 {
 	int i, j;
-	
+
 	if(this->name.empty() == true)
 		cout << " Matrix :" << endl;
 	else
 		cout << this->name << endl;
 	cout << "[" << endl;
-	
+
 	for(i = 0; i < this->getHeight(); i++)
 	{
 		for(j = 0; j < this->getWidth(); j++)
@@ -96,7 +96,7 @@ void CMatrix::printMatrix()
 		}
 		cout << " " << endl;
 	}
-	
+
 	cout << "]" << endl;
 }
 
@@ -151,19 +151,19 @@ CMatrix CMatrix::multiplyByMat(CMatrix cm) // TODO : Implement faster algorithm
 {
 		float sum = 0;
 		CMatrix res(cm.getWidth(), this->getHeight());
-		
+
 		if(this->getWidth() == cm.getHeight())
 		{
 			for(int i = 0; i < res.getWidth(); i++)
-			{	
+			{
 				for(int j = 0; j < res.getHeight(); j++)
 				{
-					
+
 					for(int k = 0; k < this->getWidth(); k++)
-					{	
+					{
 						res.setCoord(i, j, res.getCoord(i,j) + this->getCoord(i,k) * cm.getCoord(k,j));
 					}
-					
+
 				}
 			}
 		return res;
@@ -173,7 +173,7 @@ CMatrix CMatrix::multiplyByMat(CMatrix cm) // TODO : Implement faster algorithm
 			cout << "Matrix Dimensions must agree" << endl;
 			return res;
 		}
-	
+
 }
 
 void CMatrix::addSingElem(float value)
@@ -181,7 +181,7 @@ void CMatrix::addSingElem(float value)
 	for(int i = 0; i < this->getHeight(); i++)
 		for(int j = 0; j < this->getWidth(); j++)
 			this->setCoord(i, j, this->getCoord(i, j) + value);
-	
+
 }
 
 void CMatrix::multSingElem(float value)
@@ -189,17 +189,17 @@ void CMatrix::multSingElem(float value)
 	for(int i = 0; i < this->getHeight(); i++)
 		for(int j = 0; j < this->getWidth(); j++)
 			this->setCoord(i, j, this->getCoord(i, j) * value);
-	
+
 }
 
 CMatrix CMatrix::transpose()
 {
 		CMatrix cm(this->getHeight(), this->getWidth());
-		
+
 		for(int i = 0; i < this->getHeight(); i++)
 			for(int j = 0; j < this->getWidth(); j++)
 				cm.setCoord(j,i, this->getCoord(i, j));
-		
+
 		return cm;
 }
 
@@ -224,7 +224,7 @@ void CMatrix::LUDecomp(CMatrix * L, CMatrix * U)
 				for(int j = k+1; j < n; j++)
 				{
 					this->setCoord(i, j, this->getCoord(i, j) - L->getCoord(i, k)*this->getCoord(k, j));
-				} 
+				}
 			}
 			for(int j=k; j<n; j++)
 				U->setCoord(k, j, this->getCoord(k, j));
@@ -248,18 +248,17 @@ void CMatrix::CholDecomp(CMatrix * L)
 		for(j=0; j< n;j++)
 		{
 			S = 0;
-			
+
 			for(k=0; k<j; k++)
 				S+=L->getCoord(j,k)*L->getCoord(j, k);
-			
+
 			L->setCoord(j,j,sqrt(this->getCoord(j,j)-S));
-			
+
 			for(i=j; i<n; i++)
 			{
 				S = 0;
 				for(k=0; k<j; k++)
 					S+=L->getCoord(i,k)*L->getCoord(j,k);
-				
 				L->setCoord(i,j,(this->getCoord(i,j)-S)/L->getCoord(j,j));
 			}
 		}
@@ -289,7 +288,7 @@ float CMatrix::determinant()
 			detl = detu*L->getCoord(i,i);
 			detu = detu*U->getCoord(i,i);
 		}
-		
+
 		return detl*detu;
 	}
 
@@ -355,7 +354,7 @@ vector<float> CMatrix::matByVect(vector<float> s)
 }
 vector<float> CMatrix::jacobi(vector<float> x0, vector<float> b, int tol)
 {
-	
+
 	vector<float> x;
 	vector< vector<float> > res;
 
@@ -391,7 +390,7 @@ float CMatrix::normOfVect(vector<float> v1, vector<float> v2)
 	{
 		float sum = 0;
 		for(i = 0; i < v2.size(); i++)
-		{	
+		{
 			v1[i] = v1[i] - v2[i];
 			sum += v1[i] * v1[i];
 		}

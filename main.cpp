@@ -9,8 +9,6 @@ using namespace std;
 int main(void)
 {
 	CShell ct;
-
 	ct.DaemonLaunch();
-	
 	return 0;
 }
