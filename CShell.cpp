@@ -32,7 +32,7 @@ void CShell::DaemonLaunch()
 	{
 		cout << this->nameSession <<"|" << this->lineNumber++ << ">";
 		getline(std::cin,data);
-		// call analyze
+		cout << analyzeString() << endl;
 	}
 }
 
