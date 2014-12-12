@@ -35,3 +35,57 @@ void CShell::DaemonLaunch()
 		// call analyze
 	}
 }
+
+bool CShell::isOperator(char c)
+{
+	if(c ==  '*' || c == '+' || c ==  '-' || c == '/')
+		return true;
+	else
+		return false;
+}
+
+double CShell::analyzeString()
+{
+	double result = 0;
+	double temp = 0;
+	double temp2;
+	int power = 1;
+
+	for (int i = this->data.length() ; i >= 0; i--)
+	{
+		// fin what type of character it is, number or operator
+		char c = this->data[i];
+		if(isOperator(c) == false)
+		{
+			temp = temp + pow(atoi(&c), power);
+			power++;
+		}
+		else if ( c == '*')
+		{
+			result = result * temp;
+			power = 1;
+		}
+		else if ( c == '/')
+		{
+			result = result / temp;
+			power = 1;
+		}
+		else if ( c == '-')
+		{
+			result = result - temp;
+			power = 1;
+		}
+		else if ( c == '+')
+		{
+			result = result + temp;
+			power = 1;
+		}
+	}
+
+	return result;
+}
+
+
+
+
+

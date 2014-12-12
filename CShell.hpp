@@ -4,6 +4,8 @@
 #include <string>
 #include <cstring>
 #include <iostream>
+#include <cmath>
+#include <stdlib.h>
 
 class CShell{
 
@@ -22,6 +24,9 @@ public:
 	void setString(std::string ns);
 	std::string getString();
 
+	// Anlyze functions
+	double analyzeString();
+	bool isOperator(char c);
 
 	// Daemon
 	void DaemonLaunch();
