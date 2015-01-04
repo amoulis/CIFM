@@ -48,12 +48,15 @@ double CShell::analyzeString()
 {
 	double result = 0;
 	double temp = 0;
-	double temp2;
+	//double temp2 = 0;
 	int power = 1;
+	vector <float> operators;
+	vector <char> operands;
 
-	for (int i = this->data.length() ; i >= 0; i--)
+	// Loop in order to stack and differenciate operators from operands
+	for (int i = this->data.length()-1 ; i >= 0; i--)
 	{
-		// fin what type of character it is, number or operator
+		// find what type of character it is, number or operator
 		char c = this->data[i];
 		if(isOperator(c) == false)
 		{
@@ -62,24 +65,32 @@ double CShell::analyzeString()
 		}
 		else if ( c == '*')
 		{
-			result = result * temp;
 			power = 1;
+			operands.push_back('*');
+			operators.push_back(temp);
 		}
 		else if ( c == '/')
 		{
-			result = result / temp;
 			power = 1;
+			operands.push_back('/');
+			operators.push_back(temp);
 		}
 		else if ( c == '-')
 		{
-			result = result - temp;
 			power = 1;
+			operands.push_back('-');
+			operators.push_back(temp);
 		}
 		else if ( c == '+')
 		{
-			result = result + temp;
 			power = 1;
+			operands.push_back('+');
+			operators.push_back(temp);
 		}
+		//cout << "power" << power << "temp:" << temp << "result :" << result << endl;
+
+	// Loop for computations
+
 	}
 
 	return result;

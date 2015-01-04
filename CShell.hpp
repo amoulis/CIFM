@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cmath>
 #include <stdlib.h>
+#include <vector>
 
 class CShell{
 
@@ -24,7 +25,7 @@ public:
 	void setString(std::string ns);
 	std::string getString();
 
-	// Anlyze functions
+	// Analyze functions
 	double analyzeString();
 	bool isOperator(char c);
 
