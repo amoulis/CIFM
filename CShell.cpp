@@ -60,7 +60,7 @@ double CShell::analyzeString()
 		char c = this->data[i];
 		if(isOperator(c) == false)
 		{
-			temp = temp + pow(atoi(&c), power);
+			temp = temp + pow(atoi(&c), power); // check if computation ok
 			power++;
 		}
 		else if ( c == '*')
@@ -90,6 +90,19 @@ double CShell::analyzeString()
 		//cout << "power" << power << "temp:" << temp << "result :" << result << endl;
 
 	// Loop for computations
+		if(operators.length() + 1 == operands.length() )
+		{
+			// loop while there is * or / left
+				// find first * or /
+				// operand[i] operators[i] operand[i+1]
+				// move vector operand from two and save result in operand
+				// remove * or / line in operators
+			// Then look for -
+				// same algo than previously
+			// then go for plus
+				// same algo tahn before
+			// return result
+		}
 
 	}
 
