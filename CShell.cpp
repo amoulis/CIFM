@@ -57,14 +57,40 @@ int CShell::getMultDiv(vector<char> op)
 	return -1;
 }
 
+int CShell::getMinus(vector<char> op)
+{
+	for (int i = 0; i < op.size(); i++)
+	{
+		if(op[i] == '-')
+		{
+			return i;
+		}
+	}
+
+	return -1;
+}
+
+int CShell::getPlus(vector<char> op)
+{
+	for (int i = 0; i < op.size(); i++)
+	{
+		if(op[i] == '+')
+		{
+			return i;
+		}
+	}
+
+	return -1;
+}
+
 double CShell::analyzeString()
 {
 	double result = 0;
 	double temp = 0;
 	//double temp2 = 0;
 	int power = 1;
-	vector<float> operators;
-	vector<char> operands;
+	std::vector<float> operands;
+	std::vector<char> operators;
 
 	// Loop in order to stack and differenciate operators from operands
 	for (int i = this->data.length()-1 ; i >= 0; i--)
@@ -79,43 +105,88 @@ double CShell::analyzeString()
 		else if ( c == '*')
 		{
 			power = 1;
-			operands.push_back('*');
-			operators.push_back(temp);
+			operators.push_back('*');
+			operands.push_back(temp);
 		}
 		else if ( c == '/')
 		{
 			power = 1;
-			operands.push_back('/');
-			operators.push_back(temp);
+			operators.push_back('/');
+			operands.push_back(temp);
 		}
 		else if ( c == '-')
 		{
 			power = 1;
-			operands.push_back('-');
-			operators.push_back(temp);
+			operators.push_back('-');
+			operands.push_back(temp);
 		}
 		else if ( c == '+')
 		{
 			power = 1;
-			operands.push_back('+');
-			operators.push_back(temp);
+			operators.push_back('+');
+			operands.push_back(temp);
 		}
 		//cout << "power" << power << "temp:" << temp << "result :" << result << endl;
 
 	// Loop for computations
 		if(operators.size() + 1 == operands.size() )
 		{
-			// loop while there is * or / left
-				// find first * or /
-				// operand[i] operators[i] operand[i+1]
-				// move vector operand from two and save result in operand
-				// remove * or / line in operators
-			// Then look for -
-				// same algo than previously
-			// then go for plus
-				// same algo tahn before
-			// return result
+			while(1)
+			{
+				int k = getMultDiv(operators);
+				if(k==-1)
+					break;
+				else
+				{
+					if(operators[i] == '*')
+					{
+						operands[i] = operands[i] * operands[i+1];
+						operands.erase(operands.begin()+i+1);
+						operators.erase(operators.begin()+i);
+					}
+					else if (operators[i] == '/')
+					{
+						operands[i] = operands[i] / operands[i+1];
+						operands.erase(operands.begin()+i+1);
+						operators.erase(operators.begin()+i);
+					}
+				}
+			}
+
+			while(1)
+			{
+				int k = getMinus(operators);
+				if(k==-1)
+					break;
+				else
+				{
+					if(operators[i] == '-')
+					{
+						operands[i] = operands[i] - operands[i+1];
+						operands.erase(operands.begin()+i+1);
+						operators.erase(operators.begin()+i);
+					}
+				}
+			}
+
+			while(1)
+			{
+				int k = getPlus(operators);
+				if(k==-1)
+					break;
+				else
+				{
+					if(operators[i] == '+')
+					{
+						operands[i] = operands[i] + operands[i+1];
+						operands.erase(operands.begin()+i+1);
+						operators.erase(operators.begin()+i);
+					}
+				}
+			}
+
 		}
+		result = operands[0];
 
 	}
 

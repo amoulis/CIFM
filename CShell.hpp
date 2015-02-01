@@ -31,6 +31,8 @@ public:
 
 	// Algo functions
 	int getMultDiv(std::vector<char> op);
+	int getMinus(std::vector<char> op);
+	int getPlus(std::vector<char> op);
 
 	// Daemon
 	void DaemonLaunch();
