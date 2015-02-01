@@ -29,6 +29,9 @@ public:
 	double analyzeString();
 	bool isOperator(char c);
 
+	// Algo functions
+	int getMultDiv(std::vector<char> op);
+
 	// Daemon
 	void DaemonLaunch();
 

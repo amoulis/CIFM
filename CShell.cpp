@@ -44,14 +44,27 @@ bool CShell::isOperator(char c)
 		return false;
 }
 
+int CShell::getMultDiv(vector<char> op)
+{
+	for (int i = 0; i < op.size(); i++)
+	{
+		if(op[i] == '*' || op[i] == '/')
+		{
+			return i;
+		}
+	}
+
+	return -1;
+}
+
 double CShell::analyzeString()
 {
 	double result = 0;
 	double temp = 0;
 	//double temp2 = 0;
 	int power = 1;
-	vector <float> operators;
-	vector <char> operands;
+	vector<float> operators;
+	vector<char> operands;
 
 	// Loop in order to stack and differenciate operators from operands
 	for (int i = this->data.length()-1 ; i >= 0; i--)
@@ -90,7 +103,7 @@ double CShell::analyzeString()
 		//cout << "power" << power << "temp:" << temp << "result :" << result << endl;
 
 	// Loop for computations
-		if(operators.length() + 1 == operands.length() )
+		if(operators.size() + 1 == operands.size() )
 		{
 			// loop while there is * or / left
 				// find first * or /
