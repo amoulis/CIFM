@@ -1,6 +1,6 @@
 .PHONY: clean run
 
-CXX = mingw32-g++
+CXX = C:/MinGW/bin/mingw32-g++
 EXE = prog.exe
 SOURCES = main.cpp CMatrix.cpp CShell.cpp
 OBJS = main.o CMatrix.o CShell.o
