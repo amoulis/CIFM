@@ -7,11 +7,13 @@
 #include <cmath>
 #include <stdlib.h>
 #include <vector>
+#include <algorithm>
 
 class CStats{
 
 public:
 	static double mean(std::vector<double> v);
+	static double median(std::vector<double> v);
 
 };
 #endif

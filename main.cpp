@@ -12,6 +12,7 @@ int main(void)
 	std::vector<double> v;
 	v.push_back(4);
 	v.push_back(6);
-	cout << CStats::mean(v) << endl;
+	v.push_back(3);
+	cout << CStats::median(v) << endl;
 	return 0;
 }
