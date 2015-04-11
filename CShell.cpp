@@ -31,8 +31,10 @@ void CShell::DaemonLaunch()
 	while(this->data!="exit")
 	{
 		cout << this->nameSession <<"|" << this->lineNumber++ << ">";
-		getline(std::cin,data);
+		getline(std::cin,this->data);
+		this->data.insert(0, 1,'$'); //signifies ends of array
 		cout << analyzeString() << endl;
+		this->data.clear();
 	}
 }
 
@@ -88,48 +90,70 @@ double CShell::analyzeString()
 	double result = 0;
 	double temp = 0;
 	//double temp2 = 0;
-	int power = 1;
+	int power = 0;
 	std::vector<float> operands;
 	std::vector<char> operators;
 
+	operands.reserve(500);
+	operators.reserve(500);
+
+	cout << "before 1st loop" << endl;
 	// Loop in order to stack and differenciate operators from operands
-	for (int i = this->data.length()-1 ; i >= 0; i--)
+	for (int i = this->data.length() ; i >= 0; i--)
 	{
 		// find what type of character it is, number or operator
 		char c = this->data[i];
 		if(isOperator(c) == false)
 		{
-			temp = temp + pow(atoi(&c), power); // check if computation ok
+			temp = temp + atoi(&c) * pow(10, power);
 			power++;
 		}
-		else if ( c == '*')
+		if ( c == '*')
 		{
 			power = 1;
 			operators.push_back('*');
 			operands.push_back(temp);
+			temp = 0;
 		}
-		else if ( c == '/')
+		if ( c == '/')
 		{
 			power = 1;
 			operators.push_back('/');
 			operands.push_back(temp);
+			temp = 0;
 		}
-		else if ( c == '-')
+		if ( c == '-')
 		{
 			power = 1;
 			operators.push_back('-');
 			operands.push_back(temp);
+			temp = 0;
 		}
-		else if ( c == '+')
+		if ( c == '+')
 		{
 			power = 1;
 			operators.push_back('+');
 			operands.push_back(temp);
+			temp = 0;
 		}
-		//cout << "power" << power << "temp:" << temp << "result :" << result << endl;
+		if ( c == '$')
+		{
+			operands.push_back(temp);
+			temp = 0;
+			break;
+		}
+	}
+	//operands.push_back(temp);
+	//temp = 0;
+
+	cout << "operators: " << operators.size() << endl;
+	cout << "operands: " << operands.size() << endl;
 
 	// Loop for computations
-		if(operators.size() + 1 == operands.size() )
+	if(operators.size() + 1 == operands.size() )
+	{
+		cout << "in loop" << endl;
+		for (int i = 0 ; i < operators.size(); i++)
 		{
 			while(1)
 			{
@@ -187,7 +211,7 @@ double CShell::analyzeString()
 
 		}
 		result = operands[0];
-
+		//cout << "power" << power << "temp:" << temp << "result :" << result << endl;
 	}
 
 	return result;
