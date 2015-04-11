@@ -2,8 +2,8 @@
 
 CXX = C:/MinGW/bin/mingw32-g++
 EXE = prog.exe
-SOURCES = main.cpp CMatrix.cpp CShell.cpp
-OBJS = main.o CMatrix.o CShell.o
+SOURCES = main.cpp CMatrix.cpp CShell.cpp CStats.cpp
+OBJS = main.o CMatrix.o CShell.o CStats.o
 DEPS = CMatrix.hpp CShell.hpp
 #LIB = .a
 #LIB_OBJS = .o
