@@ -28,7 +28,7 @@ std::string CShell::getString()
 
 void CShell::DaemonLaunch()
 {
-	while(this->data!="exit")
+	while(this->data!="$exit")
 	{
 		cout << this->nameSession <<"|" << this->lineNumber++ << ">";
 		getline(std::cin,this->data);
@@ -97,9 +97,8 @@ double CShell::analyzeString()
 	operands.reserve(500);
 	operators.reserve(500);
 
-	cout << "before 1st loop" << endl;
 	// Loop in order to stack and differenciate operators from operands
-	for (int i = this->data.length() ; i >= 0; i--)
+	for (int i = this->data.length()-1 ; i >= 0; i--)
 	{
 		// find what type of character it is, number or operator
 		char c = this->data[i];
@@ -110,49 +109,44 @@ double CShell::analyzeString()
 		}
 		if ( c == '*')
 		{
-			power = 1;
+			power = 0;
 			operators.push_back('*');
 			operands.push_back(temp);
 			temp = 0;
 		}
 		if ( c == '/')
 		{
-			power = 1;
+			power = 0;
 			operators.push_back('/');
 			operands.push_back(temp);
 			temp = 0;
 		}
 		if ( c == '-')
 		{
-			power = 1;
+			power = 0;
 			operators.push_back('-');
 			operands.push_back(temp);
 			temp = 0;
 		}
 		if ( c == '+')
 		{
-			power = 1;
+			power = 0;
 			operators.push_back('+');
 			operands.push_back(temp);
 			temp = 0;
 		}
-		if ( c == '$')
+		if ( c == '$') // end of array
 		{
 			operands.push_back(temp);
+			power = 0;
 			temp = 0;
 			break;
 		}
 	}
-	//operands.push_back(temp);
-	//temp = 0;
-
-	cout << "operators: " << operators.size() << endl;
-	cout << "operands: " << operands.size() << endl;
 
 	// Loop for computations
 	if(operators.size() + 1 == operands.size() )
 	{
-		cout << "in loop" << endl;
 		for (int i = 0 ; i < operators.size(); i++)
 		{
 			while(1)
@@ -170,7 +164,7 @@ double CShell::analyzeString()
 					}
 					else if (operators[i] == '/')
 					{
-						operands[i] = operands[i] / operands[i+1];
+						operands[i] = operands[i+1] /  operands[i];
 						operands.erase(operands.begin()+i+1);
 						operators.erase(operators.begin()+i);
 					}
@@ -211,7 +205,7 @@ double CShell::analyzeString()
 
 		}
 		result = operands[0];
-		//cout << "power" << power << "temp:" << temp << "result :" << result << endl;
+		//cout << "power: " << power << "temp: " << temp << "result: " << result << endl;
 	}
 
 	return result;
