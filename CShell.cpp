@@ -91,7 +91,7 @@ double CShell::analyzeString()
 	double temp = 0;
 	//double temp2 = 0;
 	int power = 0;
-	std::vector<float> operands;
+	std::vector<double> operands;
 	std::vector<char> operators;
 
 	operands.reserve(500);

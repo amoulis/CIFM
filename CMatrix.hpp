@@ -14,21 +14,21 @@ class CMatrix {
 
 	int width ; // Number of columns
 	int height; // Number of lines
-	std::vector< vector<float> > data;
+	std::vector< vector<double> > data;
 	std::string name;
 
 	public:
 
 	// Constructors & destructors
 	CMatrix(int w, int h);
-	CMatrix(int w, int h, vector<vector<float> > tab, std::string newName);
+	CMatrix(int w, int h, vector<vector<double> > tab, std::string newName);
 	~CMatrix();
 
 	// Setters & Getters
 	int getWidth();
 	int getHeight();
-	float getCoord(int h, int w); // returns value of matrix at coord [h][w]
-	void setCoord(int h, int w, float value);
+	double getCoord(int h, int w); // returns value of matrix at coord [h][w]
+	void setCoord(int h, int w, double value);
 	void setName(std::string newName);
 	string getName();
 	CMatrix multiplyByMat(CMatrix cm);
@@ -36,18 +36,18 @@ class CMatrix {
 	// Operations
 	bool checkSameSize(CMatrix cm);
 	void add(CMatrix cm);
-	void addSingElem(float value);
-	void multSingElem(float value);
+	void addSingElem(double value);
+	void multSingElem(double value);
 	void multiply(CMatrix cm);
 	CMatrix transpose();
 	void LUDecomp(CMatrix * L, CMatrix * U);
-	float determinant();
+	double determinant();
 	void CholDecomp(CMatrix * L);
 	bool isInvertible();
-	vector<float> vectByVect(vector<float> s1, vector<float> s2);
-	vector<float> matByVect(vector<float> s);
-	vector<float> jacobi(vector<float> x0, vector<float> b, int tol);
-	float normOfVect(vector<float> v1, vector<float> v2);
+	vector<double> vectByVect(vector<double> s1, vector<double> s2);
+	vector<double> matByVect(vector<double> s);
+	vector<double> jacobi(vector<double> x0, vector<double> b, int tol);
+	double normOfVect(vector<double> v1, vector<double> v2);
 
 	// Print
 	void printSize();
@@ -55,9 +55,9 @@ class CMatrix {
 
 	// Operators
 	CMatrix operator* (const CMatrix & source);
-	CMatrix operator* (const float & mult);
+	CMatrix operator* (const double & mult);
 	CMatrix operator+ (const CMatrix & source);
-	CMatrix operator+ (const float & mult);
+	CMatrix operator+ (const double & mult);
 	CMatrix operator^ (CMatrix source);
 	CMatrix operator- (const CMatrix & source);
 	CMatrix operator% (CMatrix source);

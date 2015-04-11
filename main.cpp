@@ -2,13 +2,16 @@
 #include "CMatrix.hpp"
 #include <vector>
 #include <string>
-#include "CShell.hpp"
+#include "CStats.hpp"
 
 using namespace std;
 
 int main(void)
 {
-	CShell ct;
-	ct.DaemonLaunch();
+
+	std::vector<double> v;
+	v.push_back(4);
+	v.push_back(6);
+	cout << CStats::mean(v) << endl;
 	return 0;
 }
