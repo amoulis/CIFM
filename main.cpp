@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "CStats.hpp"
+#include "CShell.hpp"
 
 using namespace std;
 

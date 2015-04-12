@@ -1,4 +1,5 @@
 #include "CStats.hpp"
+#include "CMatrix.hpp"
 
 double CStats::mean(std::vector<double> v)
 {
@@ -21,4 +22,14 @@ double CStats::median(std::vector<double> v)
 		m = v[(v.size()/2)];
 
 	return m;
+}
+
+double CStats::expected(std::vector<double> v, std::vector<double> p)
+{
+	std::vector<double> r = CMatrix::vectByVect(v, p);
+	double expect = 0;
+	for(int i = 0; i < r.size(); i++)
+		expect = expect + r[i];
+
+	return expect;
 }
