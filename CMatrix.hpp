@@ -44,10 +44,10 @@ class CMatrix {
 	double determinant();
 	void CholDecomp(CMatrix * L);
 	bool isInvertible();
-	vector<double> vectByVect(vector<double> s1, vector<double> s2);
+	static vector<double> vectByVect(vector<double> s1, vector<double> s2);
 	vector<double> matByVect(vector<double> s);
 	vector<double> jacobi(vector<double> x0, vector<double> b, int tol);
-	double normOfVect(vector<double> v1, vector<double> v2);
+	static double normOfVect(vector<double> v1, vector<double> v2);
 
 	// Print
 	void printSize();
