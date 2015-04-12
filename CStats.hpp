@@ -15,6 +15,7 @@ public:
 	static double mean(std::vector<double> v);
 	static double median(std::vector<double> v);
 	static double expected(std::vector<double> v, std::vector<double> p);
+	static double standardDev(std::vector<double> v);
 
 };
 #endif

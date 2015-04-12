@@ -33,3 +33,17 @@ double CStats::expected(std::vector<double> v, std::vector<double> p)
 
 	return expect;
 }
+
+double CStats::standardDev(std::vector<double> v)
+{
+	double mean2 = pow(CStats::mean(v), 2);
+
+	std::vector<double> sqrd;
+
+	for(int i = 0; i < v.size(); i++)
+		sqrd.push_back(pow(v[i], 2));
+
+	double mean1 = mean(sqrd);
+
+	return mean1 - mean2;
+}
